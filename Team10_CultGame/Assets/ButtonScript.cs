@@ -20,7 +20,7 @@ public class ButtonScript : MonoBehaviour
     }
     
     public void RestartGame(){
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("platformer");
         }
 
     public void QuitGame(){
