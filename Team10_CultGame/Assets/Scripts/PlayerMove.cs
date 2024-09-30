@@ -24,36 +24,38 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        //NOTE: Horizontal axis: [a] / left arrow is -1, [d] / right arrow is 1
-        hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        if (isAlive == true)
+        if (isAlive)
         {
-            transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
+            // Get horizontal input
+            float moveInput = Input.GetAxis("Horizontal");
+            hMove = new Vector3(moveInput, 0.0f, 0.0f);
+
+            // Set velocity for smoother movement
+            rb2D.velocity = new Vector2(hMove.x * runSpeed, rb2D.velocity.y);
 
             if (hMove.x != 0)
             {
-                       animator.SetBool ("Walk", true);
-                //       if (!WalkSFX.isPlaying){
-                //             WalkSFX.Play();
-                //      }
-                Debug.Log("Walking"); // Log when walking
-
+                animator.SetBool("Walk", true);
+                // Play walking sound if not already playing
+                //  if (!WalkSFX.isPlaying)
+                //  {
+                //      WalkSFX.Play();
+                //  }
+                Debug.Log("Walking");
             }
             else
             {
-                      animator.SetBool ("Walk", false);
-                //      WalkSFX.Stop();
-                Debug.Log("Not Walking"); // Log when not walking
-
+                animator.SetBool("Walk", false);
+                // WalkSFX.Stop();
+                Debug.Log("Not Walking");
             }
-
-            // Turning: Reverse if input is moving the Player right and Player faces left
             if ((hMove.x < 0 && FaceRight) || (hMove.x > 0 && !FaceRight))
             {
                 playerTurn();
             }
         }
     }
+
 
     void FixedUpdate()
     {
@@ -66,12 +68,12 @@ public class PlayerMove : MonoBehaviour
 
     private void playerTurn()
     {
-        // NOTE: Switch player facing label
+        // Switch player facing label
         FaceRight = !FaceRight;
 
-        // NOTE: Multiply player's x local scale by -1.
+        // Multiply player's x local scale by -1 to flip
         Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
+        theScale.x = FaceRight ? Mathf.Abs(theScale.x) : -Mathf.Abs(theScale.x);
         transform.localScale = theScale;
     }
 }
