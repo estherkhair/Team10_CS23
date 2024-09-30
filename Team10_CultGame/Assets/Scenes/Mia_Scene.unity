@@ -225,8 +225,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1623396105}
   - component: {fileID: 1623396104}
+  - component: {fileID: 1623396106}
   m_Layer: 0
-  m_Name: Idle
+  m_Name: PlayerArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,6 +300,27 @@ Transform:
   m_Father: {fileID: 1711898264}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1623396106
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623396102}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a3e578a9d268478ab8bd009e0ecef75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1711898260
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb863ae030a84451b058c52665cbebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1623396106}
   rb2D: {fileID: 0}
   startSpeed: 10
   isAlive: 1
@@ -531,6 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72e5f7cfe5f04c6a9a7552dac4dd8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1623396106}
   rb: {fileID: 0}
   jumpForce: 8
   feet: {fileID: 1919883196}
@@ -543,6 +566,7 @@ MonoBehaviour:
   canJump: 0
   jumpTimes: 0
   isAlive: 1
+  JumpSFX: {fileID: 0}
 --- !u!1 &1852396849
 GameObject:
   m_ObjectHideFlags: 0

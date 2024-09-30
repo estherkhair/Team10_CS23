@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour
     {
         animator = gameObject.GetComponentInChildren<Animator>();
         rb2D = transform.GetComponent<Rigidbody2D>();
+        animator.SetBool("Walk", false); // Ensure the walk animation is off at the start
+
     }
 
     void Update()
@@ -28,21 +30,25 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = transform.position + hMove * runSpeed * Time.deltaTime;
 
-            if (Input.GetAxis("Horizontal") != 0)
+            if (hMove.x != 0)
             {
                        animator.SetBool ("Walk", true);
-                       if (!WalkSFX.isPlaying){
-                             WalkSFX.Play();
-                      }
+                //       if (!WalkSFX.isPlaying){
+                //             WalkSFX.Play();
+                //      }
+                Debug.Log("Walking"); // Log when walking
+
             }
             else
             {
                       animator.SetBool ("Walk", false);
-                      WalkSFX.Stop();
+                //      WalkSFX.Stop();
+                Debug.Log("Not Walking"); // Log when not walking
+
             }
-            
+
             // Turning: Reverse if input is moving the Player right and Player faces left
-            if ((hMove.x < 0 && !FaceRight) || (hMove.x > 0 && FaceRight))
+            if ((hMove.x < 0 && FaceRight) || (hMove.x > 0 && !FaceRight))
             {
                 playerTurn();
             }

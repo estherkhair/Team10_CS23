@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
 
-    //public Animator anim;
+    public Animator animator;
     public Rigidbody2D rb;
     public float jumpForce = 20f;
     public Transform feet;
@@ -14,11 +14,11 @@ public class PlayerJump : MonoBehaviour
     public bool canJump = false;
     public int jumpTimes = 0;
     public bool isAlive = true;
-    //public AudioSource JumpSFX;
+    public AudioSource JumpSFX;
 
     void Start()
     {
-        //anim = gameObject.GetComponentInChildren<Animator>();
+        animator = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -32,11 +32,15 @@ public class PlayerJump : MonoBehaviour
             }
             else { // for single jump only
                 canJump = false;
+
             }
 
             if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true))
             {
                 Jump();
+            } else
+            {
+                animator.SetBool("Jump", false);
             }
         }
     }
@@ -45,11 +49,11 @@ public class PlayerJump : MonoBehaviour
     {
         jumpTimes += 1;
         rb.velocity = Vector2.up * jumpForce;
-        // anim.SetTrigger("Jump");
+        animator.SetBool("Jump", true);
         // JumpSFX.Play();
 
-        //Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
-        //rb.velocity = movement;
+        Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
+        rb.velocity = movement;
     }
 
     public bool IsGrounded()
@@ -61,6 +65,7 @@ public class PlayerJump : MonoBehaviour
             //Debug.Log("I am trouching ground!");
             jumpTimes = 0;
             return true;
+
         }
         return false;
     }
