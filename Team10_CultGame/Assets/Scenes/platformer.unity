@@ -289,6 +289,8 @@ GameObject:
   - component: {fileID: 1391411751}
   - component: {fileID: 1391411750}
   - component: {fileID: 1391411752}
+  - component: {fileID: 1391411754}
+  - component: {fileID: 1391411753}
   m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
@@ -1606,6 +1608,76 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!66 &1391411753
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391411748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 1
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1391411748}
+--- !u!50 &1391411754
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391411748}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1493922052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1714,17 +1786,21 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].X
       value: 15998697
       objectReference: {fileID: 0}
+    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5860444864334216419, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Radius
-      value: 0.413697
+      value: 0.27473754
       objectReference: {fileID: 0}
     - target: {fileID: 5860444864334216419, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Offset.x
-      value: -0.10621905
+      value: 0.035635293
       objectReference: {fileID: 0}
     - target: {fileID: 5860444864334216419, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Offset.y
-      value: -0.77672505
+      value: -0.4959113
       objectReference: {fileID: 0}
     - target: {fileID: 6080302269510991181, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Name
@@ -1732,19 +1808,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6141613945649845305, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Size.x
-      value: 0.8937812
+      value: 0.59270144
       objectReference: {fileID: 0}
     - target: {fileID: 6141613945649845305, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Size.y
-      value: 1.3717657
+      value: 0.7580284
       objectReference: {fileID: 0}
     - target: {fileID: 6141613945649845305, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Offset.x
-      value: -0.09294152
+      value: -0.06399131
       objectReference: {fileID: 0}
     - target: {fileID: 6141613945649845305, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Offset.y
-      value: -0.18588287
+      value: -0.20904273
       objectReference: {fileID: 0}
     - target: {fileID: 6141613945649845305, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_UsedByComposite
@@ -1772,12 +1848,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317921619087832318, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.16
+      value: -0.027
       objectReference: {fileID: 0}
     - target: {fileID: 7317921619087832318, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.19
+      value: -0.738
       objectReference: {fileID: 0}
+    - target: {fileID: 8539229947989219235, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -704574837, guid: dfa9b6fafbc45420ab32e59d5c5eafad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
