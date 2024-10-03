@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-
     public Animator animator;
     public Rigidbody2D rb;
     public float jumpForce = 20f;
@@ -12,7 +11,6 @@ public class PlayerJump : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
     public bool canJump = false;
-    public int jumpTimes = 0;
     public bool isAlive = true;
     public AudioSource JumpSFX;
 
@@ -24,49 +22,45 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-        if ((IsGrounded()) || (jumpTimes <= 1))
+        // Check if the player is grounded to reset the jump
+        if (IsGrounded())
         {
-            if ((IsGrounded()) && (jumpTimes <= 1))
-            { // for single jump only
-                canJump = true;
-            }
-            else { // for single jump only
-                canJump = false;
+            canJump = true;
+        }
+        else
+        {
+            canJump = false;
+        }
 
-            }
-
-            if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true))
-            {
-                Jump();
-            } else
-            {
-                animator.SetBool("Jump", false);
-            }
+        // Allow jump if the player is alive and can jump
+        if (Input.GetButtonDown("Jump") && canJump && isAlive)
+        {
+            Jump();
+        }
+        else
+        {
+            animator.SetBool("Jump", false);
         }
     }
 
     public void Jump()
     {
-        jumpTimes += 1;
+        // Reset jump times since the player is jumping
         rb.velocity = Vector2.up * jumpForce;
         animator.SetBool("Jump", true);
-        // JumpSFX.Play();
-
-        Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
-        rb.velocity = movement;
+        // JumpSFX.Play(); // Uncomment to enable sound
     }
 
     public bool IsGrounded()
     {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
-        if ((groundCheck != null) || (enemyCheck != null))
-        {
-            //Debug.Log("I am trouching ground!");
-            jumpTimes = 0;
-            return true;
 
+        if (groundCheck != null || enemyCheck != null)
+        {
+            return true;
         }
+
         return false;
     }
 }
