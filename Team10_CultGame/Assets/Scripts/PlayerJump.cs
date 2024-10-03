@@ -19,13 +19,14 @@ public class PlayerJump : MonoBehaviour
         animator = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
-
+     
     void Update()
     {
         // Check if the player is grounded to reset the jump
         if (IsGrounded())
         {
             canJump = true;
+            animator.SetBool("Jump", false);
         }
         else
         {
@@ -37,15 +38,11 @@ public class PlayerJump : MonoBehaviour
         {
             Jump();
         }
-        else
-        {
-            animator.SetBool("Jump", false);
-        }
+
     }
 
     public void Jump()
     {
-        // Reset jump times since the player is jumping
         rb.velocity = Vector2.up * jumpForce;
         animator.SetBool("Jump", true);
         // JumpSFX.Play(); // Uncomment to enable sound
@@ -53,7 +50,7 @@ public class PlayerJump : MonoBehaviour
 
     public bool IsGrounded()
     {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.1f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
 
         if (groundCheck != null || enemyCheck != null)
