@@ -4,32 +4,24 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-
     public Animator animator;
     public Rigidbody2D rb2D;
-    private bool FaceRight = true; // determine which way player is facing.
-    public static float runSpeed = 10f;
-    public float startSpeed = 10f;
+    private bool FaceRight = true; // Determine which way player is facing.
+    public static float runSpeed = 5f;
+    public static float airControlSpeed = 3f; // Speed for horizontal movement in the air
+    public float jumpForce = 20f;
     public bool isAlive = true;
     public AudioSource WalkSFX;
-    private Vector3 hMove;
     public Transform feet;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
-    public float airDrag = 0.5f; // Drag while in the air
-
+    public bool canJump = false;
 
     public bool IsGrounded()
     {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.1f, groundLayer);
         Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
-
-        if (groundCheck != null || enemyCheck != null)
-        {
-            return true;
-        }
-
-        return false;
+        return groundCheck != null || enemyCheck != null;
     }
 
     void Start()
@@ -37,6 +29,7 @@ public class PlayerMove : MonoBehaviour
         animator = gameObject.GetComponentInChildren<Animator>();
         rb2D = transform.GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", false); // Ensure the walk animation is off at the start
+        animator.SetBool("Jump", false);
 
     }
 
@@ -44,37 +37,42 @@ public class PlayerMove : MonoBehaviour
     {
         if (isAlive)
         {
+            // Check if grounded and update jump capability
+            canJump = IsGrounded();
+
             // Get horizontal input
             float moveInput = Input.GetAxis("Horizontal");
-            hMove = new Vector3(moveInput, 0.0f, 0.0f);
+            Vector3 hMove = new Vector3(moveInput, 0.0f, 0.0f);
 
-            if (IsGrounded()) {
-                Debug.Log("walking");
+            // Handle jumping
+
+
+            // Update velocity for movement
+            if (IsGrounded())
+            {
+                animator.SetBool("Jump", false);
                 rb2D.velocity = new Vector2(hMove.x * runSpeed, rb2D.velocity.y);
-            } else
-            {
-                rb2D.drag = airDrag;
-                Debug.Log("flying");
-                rb2D.velocity = new Vector2(hMove.x * runSpeed/4, rb2D.velocity.y);
+                animator.SetBool("Walk", hMove.x != 0);
 
-            }
-            // Set velocity for smoother movement
-            rb2D.velocity = new Vector2(hMove.x * runSpeed, rb2D.velocity.y);
-
-            if (hMove.x != 0 && IsGrounded())
-            {
-                animator.SetBool("Walk", true);
                 // Play walking sound if not already playing
-                //  if (!WalkSFX.isPlaying)
-                //  {
-                //      WalkSFX.Play();
-                //  }
+                if (hMove.x != 0 && WalkSFX != null && !WalkSFX.isPlaying)
+                {
+                    WalkSFX.Play();
+                }
             }
             else
             {
-                animator.SetBool("Walk", false);
-                // WalkSFX.Stop();
+                rb2D.velocity = new Vector2(hMove.x * airControlSpeed, rb2D.velocity.y); // Use air control speed in air
             }
+            if (Input.GetButtonDown("Jump") && canJump)
+            {
+                rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+                animator.SetBool("Jump", true);
+                // Optionally play jump sound
+                // if (JumpSFX != null) JumpSFX.Play();
+            }
+
+            // Handle player turning
             if ((hMove.x < 0 && FaceRight) || (hMove.x > 0 && !FaceRight))
             {
                 playerTurn();
@@ -82,11 +80,10 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-
     void FixedUpdate()
     {
-        //slow down on hills / stops sliding from velocity
-        if (hMove.x == 0)
+        // Slow down on hills / stops sliding from velocity
+        if (IsGrounded() && rb2D.velocity.x == 0)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y);
         }

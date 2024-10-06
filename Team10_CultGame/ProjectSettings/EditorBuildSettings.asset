@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/August Start.unity
     guid: 0beb633034b351244ac043fd0494f6b3
   - enabled: 1
-    path: Assets/Scenes/platformer.unity
+    path: Assets/Scenes/Level1.unity
     guid: 24ad9d2af62914851a493a7d5428a26b
   - enabled: 1
     path: Assets/Scenes/August End.unity

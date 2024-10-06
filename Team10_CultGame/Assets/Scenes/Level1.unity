@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 888044456}
   - component: {fileID: 888044455}
   - component: {fileID: 888044454}
+  - component: {fileID: 888044457}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -355,13 +356,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888044453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8434, y: 5.2868, z: 0}
+  m_LocalPosition: {x: 5.49, y: 5.23, z: 0}
   m_LocalScale: {x: 1.5133637, y: 2.3537343, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888044457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888044453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3422e937d3c054facb301fd8c8427152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevel: SampleScene
 --- !u!4 &992136583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7317921619087832318, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
@@ -2211,7 +2225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: gravityScale
@@ -2228,6 +2242,10 @@ PrefabInstance:
     - target: {fileID: 5116551015484405568, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: airDrag
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116551015484405568, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: jumpForce
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5116551015484405568, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
       propertyPath: m_Enabled
@@ -2329,7 +2347,8 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
