@@ -22,7 +22,7 @@ public class CountFollowers1 : MonoBehaviour
     public void updateStatsDisplay(){
     
         Text followerTextTemp = followerText.GetComponent<Text>();
-        followerTextTemp.text = "FOLLOWERS: " + followerCount;
+        followerTextTemp.text = "FOLLOWERS: " + followerCount + "/8";
 
       }
 
