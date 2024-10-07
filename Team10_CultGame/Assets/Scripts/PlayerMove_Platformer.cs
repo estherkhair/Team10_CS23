@@ -7,9 +7,9 @@ public class PlayerMove : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb2D;
     private bool FaceRight = true; // Determine which way player is facing.
-    public static float runSpeed = 5f;
-    public static float airControlSpeed = 3f; // Speed for horizontal movement in the air
-    public float jumpForce = 20f;
+    public float runSpeed = 15f;
+    public static float airControlSpeed = 6f; // Speed for horizontal movement in the air
+    public float jumpForce = 5f;
     public bool isAlive = true;
     public AudioSource WalkSFX;
     public Transform feet;
