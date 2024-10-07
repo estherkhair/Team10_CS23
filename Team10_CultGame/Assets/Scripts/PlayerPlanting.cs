@@ -10,11 +10,13 @@ public class PlayerPlanting : MonoBehaviour{
     public float plantingDistance = 5f;
     public LayerMask plantsLayer;
     bool isNearPlants = false;
+    bool plantPossible = false; 
 
     void Update(){
         if (Input.GetKeyDown("p")){
             IsNearOtherPlants();
-            if (!isNearPlants){
+            FollowerCheck();
+            if (!isNearPlants && plantPossible){
                 PlantFollower();
             }
         } 
@@ -23,7 +25,15 @@ public class PlayerPlanting : MonoBehaviour{
     void PlantFollower(){
         Instantiate(followerPlant, plantPoint.position, Quaternion.identity);
     }
-
+    
+    void FollowerCheck() {
+        if (CountFollowers1.followerCount < 8) {
+            plantPossible = true; 
+        }
+        if (CountFollowers1.followerCount >= 8) {
+            Debug.Log("Max Followers Reached");
+        }
+    }
     public void IsNearOtherPlants(){
         Collider2D[] hitPlants = Physics2D.OverlapCircleAll(plantPoint.position, plantingDistance, plantsLayer);
         if (hitPlants.Length == 0){
