@@ -4137,6 +4137,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1564478913}
+    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
+      propertyPath: gravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 205051328274465482, guid: aa01d51c6c24941d7b505d791cdee4c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4236,22 +4252,6 @@ PrefabInstance:
     - target: {fileID: 3146180382975012858, guid: aa01d51c6c24941d7b505d791cdee4c9, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].X
       value: 15998697
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 1564478913}
-    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
-      propertyPath: jumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4148555446657815465, guid: 96e376db6ce3c480e958cd9536971636, type: 3}
-      propertyPath: gravityScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5116551015484405568, guid: aa01d51c6c24941d7b505d791cdee4c9, type: 3}
       propertyPath: feet
