@@ -624,7 +624,7 @@ MonoBehaviour:
   plantStage2: {fileID: 8459532519491897650}
   plantStage3: {fileID: 5410536659226094428}
   plantStage4: {fileID: 100351145242470476}
-  followerPrefab: {fileID: 5473356616067830289, guid: f0b0c1b46cdd6e94f8caf641cc0e1f7a, type: 3}
+  followerPrefab: {fileID: 3505439476730035596, guid: de1a7f6273c77fe41b735d8932ea973c, type: 3}
   timeToGrow: 1.5
 --- !u!1 &5856969439235287626
 GameObject:
