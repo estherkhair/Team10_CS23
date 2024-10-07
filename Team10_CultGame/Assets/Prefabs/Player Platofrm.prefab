@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 12.8, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &4115053421803114056
@@ -151,7 +151,6 @@ GameObject:
   - component: {fileID: 6473984361586541035}
   - component: {fileID: 5116551015484405568}
   - component: {fileID: 3146180382975012858}
-  - component: {fileID: 4148555446657815465}
   - component: {fileID: 3597535554061115339}
   m_Layer: 0
   m_Name: Player Platofrm
@@ -298,9 +297,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4115053421803114056}
   rb2D: {fileID: 0}
-  startSpeed: 5
+  jumpForce: 20
   isAlive: 1
   WalkSFX: {fileID: 0}
+  feet: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  canJump: 0
 --- !u!66 &3146180382975012858
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -358,32 +365,6 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 6080302269510991181}
---- !u!114 &4148555446657815465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6080302269510991181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b72e5f7cfe5f04c6a9a7552dac4dd8f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4115053421803114056}
-  rb: {fileID: 0}
-  jumpForce: 4
-  feet: {fileID: 7317921619087832318}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  canJump: 0
-  jumpTimes: 0
-  isAlive: 1
-  JumpSFX: {fileID: 0}
 --- !u!114 &3597535554061115339
 MonoBehaviour:
   m_ObjectHideFlags: 0
