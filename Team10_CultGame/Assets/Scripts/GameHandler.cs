@@ -64,6 +64,11 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    public void addBlock()
+    {
+        currentBlocks++;
+    }
+
     // Method to reset the game state (optional)
     public void ResetGame()
     {
