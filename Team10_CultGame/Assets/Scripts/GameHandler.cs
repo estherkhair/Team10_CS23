@@ -1,7 +1,12 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+
     // Player's maximum number of jumps and blocks
     public int maxJumps = 8;
     public int maxBlocks = 8;
@@ -9,6 +14,7 @@ public class GameHandler : MonoBehaviour
     // Current available jumps and blocks
     private int currentJumps;
     private int currentBlocks;
+    public static int gruntNumber;
 
     // UI Elements (optional, can be linked through the inspector)
     public UnityEngine.UI.Text jumpsText;
@@ -16,9 +22,11 @@ public class GameHandler : MonoBehaviour
 
     void Start()
     {
+        
         // Initialize current jumps and blocks
         currentJumps = maxJumps;
         currentBlocks = maxBlocks;
+        gruntNumber = currentBlocks; 
 
         UpdateUI();
     }
@@ -65,9 +73,12 @@ public class GameHandler : MonoBehaviour
         if (currentBlocks > 0)
         {
             currentBlocks--;
+            gruntNumber--;
+
             UpdateUI();
             // Add block placing logic here
             Debug.Log("Block placed! Remaining blocks: " + currentBlocks);
+            
         }
         else
         {

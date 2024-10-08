@@ -8,8 +8,8 @@ public class CountFollowers1 : MonoBehaviour
 {
 
     private GameObject player;
-    public int followerCount = 0;
-    public int StartFollowerCount = 0;
+    public int StartFollowerCount = 8;
+    public int followerCount;
     public GameObject followerText;
     public UnityEngine.UI.Text followText;
     private string sceneName;
@@ -17,20 +17,19 @@ public class CountFollowers1 : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player"); 
+        followerCount = GameHandler.gruntNumber;
         updateStatsDisplay();
     }
 
     public void addPlant()
     {
-        followerCount++;
+        followerCount++; 
         updateStatsDisplay();
     }
 
     public void updateStatsDisplay(){
-    
-        //Text followerTextTemp = followerText.GetComponent<Text>();
+        Text followerTextTemp = followText.GetComponent<Text>();
         followText.text = "FOLLOWERS: " + followerCount + "/8";
 
       }
-
 }

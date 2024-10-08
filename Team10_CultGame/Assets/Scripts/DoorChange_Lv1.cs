@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DoorExitSimple : MonoBehaviour
 {
 
-    public string NextLevel = "SampleScene";
+    public string NextLevel = "garden";
 
     public void OnTriggerEnter2D(Collider2D other)
     {

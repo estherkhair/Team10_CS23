@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8429054343747426933}
   - component: {fileID: 5835647009132647225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: follower_art
   m_TagString: Follower
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4780690689939420624}
   - component: {fileID: 9116414236561769652}
   - component: {fileID: 3157349603205914948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: follower_real
   m_TagString: Follower
   m_Icon: {fileID: 0}

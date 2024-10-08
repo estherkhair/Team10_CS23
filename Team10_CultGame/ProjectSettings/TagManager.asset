@@ -8,6 +8,7 @@ TagManager:
   - Follower
   - FollowerPlant
   - MonologueManager
+  - GameHandler
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ground
+    uniqueID: 3109355559
+    locked: 0
+  - name: plants
+    uniqueID: 1872932727
     locked: 0
