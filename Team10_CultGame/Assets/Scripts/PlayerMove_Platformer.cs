@@ -79,6 +79,13 @@ public class PlayerMove : MonoBehaviour
                 playerTurn();
             }
 
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                if (gameHandler.hasBlock())
+                {
+                    CreateBlock();
+                }
+            }
         }
     }
 
@@ -90,7 +97,28 @@ public class PlayerMove : MonoBehaviour
             rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y);
         }
     }
+    public void CreateBlock()
+    {
+        // Get the player's current position
+        Vector3 playerPosition = feet.position;
+        Vector3 blockPosition;
+        gameHandler.UseBlock();
 
+        if (FaceRight)
+        {
+            blockPosition = playerPosition + Vector3.right * distanceFromPlayer;
+
+        }
+        else
+        {
+            blockPosition = playerPosition + Vector3.left * distanceFromPlayer;
+
+        }
+        // Calculate the position for the new block (to the left)
+
+        // Instantiate the block at the calculated position
+        Instantiate(blockPrefab, blockPosition, Quaternion.identity);
+    }
 
     private void playerTurn()
     {

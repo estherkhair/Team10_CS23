@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 24ad9d2af62914851a493a7d5428a26b
   - enabled: 1
-    path: Assets/Scenes/Game Over.unity
-    guid: 7e77dfc6e081be249aafe52d7ae0c108
-  - enabled: 1
     path: Assets/Scenes/Esther_Garden.unity
     guid: 88c7efe4f2abc134d8b0226d8896ef97
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 7e77dfc6e081be249aafe52d7ae0c108
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 8177e247a0b9a49778b6aa9b63bfa495

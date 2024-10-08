@@ -3,8 +3,8 @@ using UnityEngine;
 public class GameHandler : MonoBehaviour
 {
     // Player's maximum number of jumps and blocks
-    public int maxJumps = 3;
-    public int maxBlocks = 5;
+    public int maxJumps = 8;
+    public int maxBlocks = 8;
 
     // Current available jumps and blocks
     private int currentJumps;
