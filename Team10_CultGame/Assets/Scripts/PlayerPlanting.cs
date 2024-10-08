@@ -34,10 +34,10 @@ public class PlayerPlanting : MonoBehaviour{
     }
     
     void FollowerCheck() {
-        if (CountFollowers1.followerCount < 8) {
+        if (CountFollowers1.followerCount < 10) {
             plantPossible = true; 
         }
-        if (CountFollowers1.followerCount >= 8) {
+        if (CountFollowers1.followerCount >= 10) {
             plantPossible = false;
             Debug.Log("Max Followers Reached");
         }

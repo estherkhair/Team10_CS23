@@ -8,8 +8,8 @@ public class GameHandler : MonoBehaviour
 {
 
     // Player's maximum number of jumps and blocks
-    public int maxJumps = 8;
-    public int maxBlocks = 8;
+    public int maxJumps = 10;
+    public int maxBlocks = 10;
 
     // Current available jumps and blocks
     private int currentJumps;

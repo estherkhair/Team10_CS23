@@ -8,7 +8,7 @@ public class CountFollowers1 : MonoBehaviour
 {
 
     private GameObject player;
-    public int StartFollowerCount = 8;
+    public int StartFollowerCount = 10;
     public int followerCount;
     public GameObject followerText;
     public UnityEngine.UI.Text followText;
@@ -29,7 +29,7 @@ public class CountFollowers1 : MonoBehaviour
 
     public void updateStatsDisplay(){
         Text followerTextTemp = followText.GetComponent<Text>();
-        followText.text = "FOLLOWERS: " + followerCount + "/8";
+        followText.text = "FOLLOWERS: " + followerCount + "/10";
 
       }
 }
