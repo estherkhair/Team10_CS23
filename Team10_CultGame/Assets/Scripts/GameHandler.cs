@@ -48,6 +48,17 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    public bool hasBlock()
+    {
+        if (currentBlocks > 0)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
     // Call this method when the player places a block
     public void UseBlock()
     {

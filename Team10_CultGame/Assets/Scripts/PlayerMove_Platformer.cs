@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D rb2D;
-    private bool FaceRight = true; // Determine which way player is facing.
+    public bool FaceRight = true; // Determine which way player is facing.
     public float runSpeed = 15f;
     public static float airControlSpeed = 6f; // Speed for horizontal movement in the air
     public float jumpForce = 5f;
@@ -16,6 +16,9 @@ public class PlayerMove : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
     public bool canJump = false;
+    public GameObject blockPrefab; // Assign your BlockPrefab in the inspector
+    public float distanceFromPlayer = 1.0f; // Distance to place the block
+    private GameHandler gameHandler; // Reference to the GameHandler
 
     public bool IsGrounded()
     {
@@ -26,6 +29,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         animator = gameObject.GetComponentInChildren<Animator>();
         rb2D = transform.GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", false); // Ensure the walk animation is off at the start
@@ -45,9 +49,6 @@ public class PlayerMove : MonoBehaviour
             Vector3 hMove = new Vector3(moveInput, 0.0f, 0.0f);
 
             // Handle jumping
-
-
-            // Update velocity for movement
             if (IsGrounded())
             {
                 animator.SetBool("Jump", false);
@@ -77,6 +78,14 @@ public class PlayerMove : MonoBehaviour
             {
                 playerTurn();
             }
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                if (gameHandler.hasBlock())
+                {
+                    CreateBlock();
+                }
+            }
         }
     }
 
@@ -87,6 +96,28 @@ public class PlayerMove : MonoBehaviour
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y);
         }
+    }
+    public void CreateBlock()
+    {
+        // Get the player's current position
+        Vector3 playerPosition = feet.position;
+        Vector3 blockPosition;
+        gameHandler.UseBlock();
+
+        if (FaceRight)
+        {
+            blockPosition = playerPosition + Vector3.right * distanceFromPlayer;
+
+        }
+        else
+        {
+            blockPosition = playerPosition + Vector3.left * distanceFromPlayer;
+
+        }
+        // Calculate the position for the new block (to the left)
+
+        // Instantiate the block at the calculated position
+        Instantiate(blockPrefab, blockPosition, Quaternion.identity);
     }
 
     private void playerTurn()
