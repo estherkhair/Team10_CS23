@@ -380,7 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3422e937d3c054facb301fd8c8427152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: SampleScene
+  NextLevel: garden
+  CountFollowers1: {fileID: 0}
 --- !u!1001 &940653260
 PrefabInstance:
   m_ObjectHideFlags: 0
