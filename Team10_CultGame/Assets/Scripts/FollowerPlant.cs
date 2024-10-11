@@ -20,8 +20,9 @@ public class FollowerPlant : MonoBehaviour{
         plantStage3.SetActive(false);
         plantStage4.SetActive(false);
 
-        StartCoroutine(GrowPlant());
+        // StartCoroutine(GrowPlant());
     }
+
 
     // Update is called once per frame
     IEnumerator GrowPlant(){
@@ -47,3 +48,4 @@ public class FollowerPlant : MonoBehaviour{
         //Destroy(gameObject);
     }
 }
+
