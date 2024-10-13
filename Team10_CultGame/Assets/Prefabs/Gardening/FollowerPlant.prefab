@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 472160387242775254}
   - component: {fileID: 202528464604260642}
   - component: {fileID: -1840605545912453212}
+  - component: {fileID: 9052680805164667254}
+  - component: {fileID: 304078334373885952}
   m_Layer: 9
   m_Name: FollowerPlant
   m_TagString: FollowerPlant
@@ -55,6 +57,8 @@ MonoBehaviour:
   plantStage3: {fileID: 5410536659226094428}
   plantStage4: {fileID: 100351145242470476}
   followerPrefab: {fileID: 3505439476730035596, guid: de1a7f6273c77fe41b735d8932ea973c, type: 3}
+  isWatered: 0
+  isHarvested: 0
   timeToGrow: 1.5
 --- !u!58 &202528464604260642
 CircleCollider2D:
@@ -90,7 +94,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
 --- !u!50 &-1840605545912453212
 Rigidbody2D:
   serializedVersion: 4
@@ -118,6 +122,64 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9052680805164667254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695919686405936703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e280b5079db0049903f81770a5260c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+  interactKey: 116
+  interactAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 472160387242775254}
+        m_TargetAssemblyTypeName: FollowerPlant, Assembly-CSharp
+        m_MethodName: WaterPlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &304078334373885952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695919686405936703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e280b5079db0049903f81770a5260c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+  interactKey: 104
+  interactAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 472160387242775254}
+        m_TargetAssemblyTypeName: FollowerPlant, Assembly-CSharp
+        m_MethodName: toHarvest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5856969439235287626
 GameObject:
   m_ObjectHideFlags: 0
