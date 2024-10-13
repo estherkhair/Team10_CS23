@@ -188,8 +188,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6752657265163458128, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
       propertyPath: NextLevel
-      value: Level 2
+      value: Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6752657265163458128, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
+      propertyPath: CountFollowers1
+      value: 
+      objectReference: {fileID: 1870533294}
     - target: {fileID: 7066111385942429785, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
       propertyPath: m_Name
       value: Door
@@ -238,8 +242,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d20fcd33b29b34aa1ace4b05ed9ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxJumps: 10
+  maxBlocks: 10
+  currentJumps: 0
+  currentBlocks: 0
+  jumpsText: {fileID: 0}
+  blocksText: {fileID: 0}
   StartFollowerCount: 8
   followerCount: 0
+  GameHandler: {fileID: 1870533294}
   followerText: {fileID: 1291166869}
   followText: {fileID: 814724771}
 --- !u!4 &1870533295

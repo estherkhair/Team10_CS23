@@ -13,7 +13,7 @@ public class FollowerPlant : MonoBehaviour{
     public bool isHarvested = false; 
 
 
-    public float timeToGrow = 1.5f;
+    public float timeToGrow = 1.0f
 
     // Start is called before the first frame update
     void Start(){
@@ -40,6 +40,7 @@ public class FollowerPlant : MonoBehaviour{
         yield return new WaitForSeconds(timeToGrow);
         }
         if (isHarvested) {
+        yield return new WaitForSeconds(timeToGrow);
         Instantiate(followerPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(timeToGrow);
 //after delay, switch to stage 4 (whither)
@@ -48,6 +49,8 @@ public class FollowerPlant : MonoBehaviour{
         yield return new WaitForSeconds(timeToGrow);      
 //after delay, destroy (comment this line out if you want to not be abel to plant in the same place twice)
         //Destroy(gameObject); */
+        isHarvested = false;
+        isWatered = false;
         }
 }
     public void WaterPlant() {
@@ -55,8 +58,8 @@ public class FollowerPlant : MonoBehaviour{
         StartCoroutine(GrowPlant());
     }
     public void toHarvest() {
-        isWatered = false;
         isHarvested = true;
+        isWatered = false;
         StartCoroutine(GrowPlant());
     }
 }

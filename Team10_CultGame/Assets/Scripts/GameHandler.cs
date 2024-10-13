@@ -12,8 +12,8 @@ public class GameHandler : MonoBehaviour
     public int maxBlocks = 10;
 
     // Current available jumps and blocks
-    private int currentJumps;
-    private int currentBlocks;
+    public int currentJumps;
+    public int currentBlocks;
     public static int gruntNumber;
 
     // UI Elements (optional, can be linked through the inspector)
@@ -29,6 +29,12 @@ public class GameHandler : MonoBehaviour
         gruntNumber = currentBlocks; 
 
         UpdateUI();
+    }
+
+    public int followersNow() {
+        int nowFollowers;
+        nowFollowers = currentBlocks;
+        return nowFollowers;
     }
 
     void UpdateUI()

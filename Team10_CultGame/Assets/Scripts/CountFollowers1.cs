@@ -4,20 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CountFollowers1 : MonoBehaviour
+public class CountFollowers1 : GameHandler
 {
 
     private GameObject player;
     public int StartFollowerCount = 10;
     public int followerCount;
+    public GameHandler GameHandler;
     public GameObject followerText;
     public UnityEngine.UI.Text followText;
     private string sceneName;
     
     void Start()
     {
+        GameHandler = GameObject.FindWithTag("GameController").GetComponent<GameHandler>();
         player = GameObject.FindWithTag("Player"); 
-        followerCount = GameHandler.gruntNumber;
+        followerCount = GameHandler.followersNow();
         updateStatsDisplay();
     }
 

@@ -24,11 +24,6 @@ public class DoorExitSimple : MonoBehaviour
             
             SceneManager.LoadScene(NextLevel);
         }
-
-        else 
-        {
-            SceneManager.LoadScene(NextLevel);
-        }
     }
 
 }

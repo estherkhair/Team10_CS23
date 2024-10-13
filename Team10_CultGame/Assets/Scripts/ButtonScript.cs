@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
     public void RestartGame(){
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("garden");
         }
 
     public void QuitGame(){
