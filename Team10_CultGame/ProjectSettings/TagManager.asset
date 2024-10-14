@@ -23,7 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Pause Menu
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: plants
     uniqueID: 1872932727
+    locked: 0
+  - name: Pause Menu
+    uniqueID: 217804715
     locked: 0
