@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartFollowerCount: 10
   followerCount: 0
+  GameHandler: {fileID: 0}
   followerText: {fileID: 0}
   followText: {fileID: 0}
 --- !u!4 &841472410
@@ -2615,6 +2616,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6752657265163458128, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
+      propertyPath: CountFollowers1
+      value: 
+      objectReference: {fileID: 841472409}
     - target: {fileID: 7066111385942429785, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
       propertyPath: m_Name
       value: Door

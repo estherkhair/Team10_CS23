@@ -24,6 +24,10 @@ public class DoorExitSimple : MonoBehaviour
             
             SceneManager.LoadScene(NextLevel);
         }
+        else if (other.gameObject.tag == "Player" && sceneName == "Level 1") {
+    
+            SceneManager.LoadScene(NextLevel);
+        }
     }
 
 }

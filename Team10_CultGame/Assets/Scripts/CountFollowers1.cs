@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CountFollowers1 : GameHandler
+public class CountFollowers1 : MonoBehaviour
 {
 
     private GameObject player;
-    public int StartFollowerCount = 10;
-    public int followerCount;
+    public int StartFollowerCount = 0;
+    public int followerCount = 0;
     public GameHandler GameHandler;
     public GameObject followerText;
     public UnityEngine.UI.Text followText;
