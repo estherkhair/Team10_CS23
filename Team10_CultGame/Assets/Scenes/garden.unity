@@ -289,6 +289,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1079122353415563741, guid: d85930f83fc2248e7baeab082526ff8f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3381098203250494834, guid: d85930f83fc2248e7baeab082526ff8f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -10289,9 +10293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartFollowerCount: 10
   followerCount: 0
+  glideCount: 0
+  StartGlideCount: 0
   GameHandler: {fileID: 1870533296}
   followerText: {fileID: 1291166869}
   followText: {fileID: 814724771}
+  glideText: {fileID: 0}
 --- !u!4 &1870533295
 Transform:
   m_ObjectHideFlags: 0

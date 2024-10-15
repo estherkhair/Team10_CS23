@@ -119,7 +119,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
               if (CountFollowers1.glideCount < 5) {
                      tamePossible = true;
               }
-              if (CountFollowers1.followerCount >= 10) {
+              if (CountFollowers1.glideCount >= 5) {
                      tamePossible = false;
               }
        }

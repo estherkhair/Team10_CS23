@@ -28,6 +28,9 @@ public class DoorExitSimple : MonoBehaviour
     
             SceneManager.LoadScene(NextLevel);
         }
+        else if (other.gameObject.tag == "Player" && sceneName == "garden 2" && CountFollowers1.followerCount == 10 && CountFollowers1.glideCount == 5) {
+            SceneManager.LoadScene(NextLevel);
+        }
     }
 
 }
