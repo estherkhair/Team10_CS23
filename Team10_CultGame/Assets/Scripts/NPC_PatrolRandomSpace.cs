@@ -21,6 +21,9 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
        public bool isTamed = false; 
        public float timeToTame = 0.5f;
 
+       public CountFollowers1 CountFollowers1;
+       public bool tamePossible;
+
        public bool followPlayer = true;
        private GameObject player;
        private Vector2 playerPos;
@@ -32,6 +35,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
        private float scaleX;
 
        void Start(){
+              CountFollowers1 = GameObject.FindWithTag("GameController").GetComponent<CountFollowers1>();
               player = GameObject.FindWithTag("Player");
               waitTime = startWaitTime;
               float randomX = Random.Range(minX, maxX);
@@ -102,8 +106,21 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
        } */ 
 
        public void TameSheep() {
+              TameCheck();
+              if (!isTamed && tamePossible) {
               isTamed = true; 
+              CountFollowers1.addGlide();
               sheepStage1.SetActive(false);
               sheepStage2.SetActive(true);
+              }
+       }
+
+       void TameCheck() {
+              if (CountFollowers1.glideCount < 5) {
+                     tamePossible = true;
+              }
+              if (CountFollowers1.followerCount >= 10) {
+                     tamePossible = false;
+              }
        }
 }

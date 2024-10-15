@@ -37,6 +37,12 @@ public class GameHandler : MonoBehaviour
         return nowFollowers;
     }
 
+    public int glideNow() {
+        int nowGlide;
+        nowGlide = currentGlides;
+        return nowGlide;
+    }
+
     void UpdateUI()
     {
         if (jumpsText != null)
