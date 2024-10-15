@@ -610,7 +610,7 @@ MonoBehaviour:
   GameHandler: {fileID: 612582681}
   followerText: {fileID: 1785428681}
   followText: {fileID: 1107333488}
-  glideText: {fileID: 0}
+  glideText: {fileID: 1107333488}
 --- !u!4 &841472410
 Transform:
   m_ObjectHideFlags: 0
