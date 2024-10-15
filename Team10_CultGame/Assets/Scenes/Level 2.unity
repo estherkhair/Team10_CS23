@@ -4214,7 +4214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6752657265163458128, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
       propertyPath: NextLevel
-      value: Title Screen
+      value: The End
       objectReference: {fileID: 0}
     - target: {fileID: 7066111385942429785, guid: 98f704d3d4641254c8c7cd0e0416d29c, type: 3}
       propertyPath: m_Name
