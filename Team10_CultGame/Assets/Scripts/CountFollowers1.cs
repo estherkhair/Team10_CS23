@@ -31,7 +31,7 @@ public class CountFollowers1 : MonoBehaviour
 
     public void updateStatsDisplay(){
         Text followerTextTemp = followText.GetComponent<Text>();
-        followText.text = "FOLLOWERS: " + followerCount + "/10";
+        followText.text = "Followers: " + followerCount + "/10";
 
       }
 }

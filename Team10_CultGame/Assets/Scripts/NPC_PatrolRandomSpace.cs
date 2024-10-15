@@ -25,7 +25,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
        private GameObject player;
        private Vector2 playerPos;
        private float distToPlayer;
-       public float followDistance = 2f;
+       public float followDistance = 5f;
        public float startFollowDistance = 5f;
        public float moveSpeed = 5f;
        public float topSpeed = 10f;
@@ -47,7 +47,7 @@ public class NPC_PatrolRandomSpace : MonoBehaviour {
               moveSpeed = Random.Range((topSpeed * 0.7f), topSpeed);
        }
 
-       void Update(){
+       void FixedUpdate(){
               if (!isTamed) {
               transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
 
