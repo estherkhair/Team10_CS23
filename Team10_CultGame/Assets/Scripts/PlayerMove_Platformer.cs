@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
     public Transform feet;
     public LayerMask groundLayer;
     public LayerMask enemyLayer;
-    public bool canJump = false;
+    public bool canJump = true;
     public GameObject blockPrefab; // Assign your BlockPrefab in the inspector
     public float distanceFromPlayer = 1.0f; // Distance to place the block
     private GameHandler gameHandler; // Reference to the GameHandler
