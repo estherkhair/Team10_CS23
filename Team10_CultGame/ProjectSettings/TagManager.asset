@@ -9,6 +9,7 @@ TagManager:
   - FollowerPlant
   - MonologueManager
   - GameHandler
+  - Spike
   layers:
   - Default
   - TransparentFX
