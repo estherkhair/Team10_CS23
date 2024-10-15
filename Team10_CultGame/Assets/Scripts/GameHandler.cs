@@ -8,11 +8,11 @@ public class GameHandler : MonoBehaviour
 {
 
     // Player's maximum number of jumps and blocks
-    public int maxJumps = 10;
     public int maxBlocks = 10;
+    public int maxGlide = 5;
 
     // Current available jumps and blocks
-    public int currentJumps;
+    public int currentGlides;
     public int currentBlocks;
     public static int gruntNumber;
 
@@ -22,9 +22,9 @@ public class GameHandler : MonoBehaviour
 
     void Start()
     {
-        
+
         // Initialize current jumps and blocks
-        currentJumps = maxJumps;
+        currentGlides = maxGlide;
         currentBlocks = maxBlocks;
         gruntNumber = currentBlocks; 
 
@@ -40,25 +40,36 @@ public class GameHandler : MonoBehaviour
     void UpdateUI()
     {
         if (jumpsText != null)
-            jumpsText.text = "Jumps: " + currentJumps;
+            jumpsText.text = "Jumps: " + currentGlides;
 
         if (blocksText != null)
             blocksText.text = "Blocks: " + currentBlocks;
     }
 
-    // Call this method when the player jumps
-    public void UseJump()
+    public void UseGlide()
     {
-        if (currentJumps > 0)
+        if (currentGlides > 0)
         {
-            currentJumps--;
+            currentGlides--;
             UpdateUI();
             // Add jump logic here
-            Debug.Log("Jump used! Remaining jumps: " + currentJumps);
+            Debug.Log("Jump used! Remaining jumps: " + currentGlides);
         }
         else
         {
             Debug.Log("No jumps left!");
+        }
+    }
+
+    public bool hasGlide()
+    {
+        if (currentGlides > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -100,7 +111,7 @@ public class GameHandler : MonoBehaviour
     // Method to reset the game state (optional)
     public void ResetGame()
     {
-        currentJumps = maxJumps;
+        currentGlides = maxGlide;
         currentBlocks = maxBlocks;
         UpdateUI();
     }

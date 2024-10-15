@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float runSpeed = 15f;
     public static float airControlSpeed = 6f; // Speed for horizontal movement in the air
     public float jumpForce = 5f;
+    public float glideSpeed = 5f; // Speed while gliding
     public bool isAlive = true;
     public AudioSource WalkSFX;
     public Transform feet;
@@ -19,6 +20,8 @@ public class PlayerMove : MonoBehaviour
     public GameObject blockPrefab; // Assign your BlockPrefab in the inspector
     public float distanceFromPlayer = 1.0f; // Distance to place the block
     private GameHandler gameHandler; // Reference to the GameHandler
+    private bool isGliding = false; // Check if the player is currently gliding
+    public float glideYVelocityFactor = 0.5f; // Factor to reduce Y velocity while gliding
 
     public bool IsGrounded()
     {
@@ -34,7 +37,6 @@ public class PlayerMove : MonoBehaviour
         rb2D = transform.GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", false); // Ensure the walk animation is off at the start
         animator.SetBool("Jump", false);
-
     }
 
     void Update()
@@ -47,6 +49,19 @@ public class PlayerMove : MonoBehaviour
             // Get horizontal input
             float moveInput = Input.GetAxis("Horizontal");
             Vector3 hMove = new Vector3(moveInput, 0.0f, 0.0f);
+
+            // Handle gliding
+            if (Input.GetKeyDown(KeyCode.G) && !IsGrounded() && gameHandler.hasGlide())
+            {
+                isGliding = true; // Start gliding
+                gameHandler.UseGlide();
+                animator.SetBool("Glide", true); // Set gliding animation
+            }
+            if (Input.GetKeyUp(KeyCode.G) || IsGrounded())
+            {
+                isGliding = false; // Stop gliding
+                animator.SetBool("Glide", false); // Reset gliding animation
+            }
 
             // Handle jumping
             if (IsGrounded())
@@ -61,10 +76,15 @@ public class PlayerMove : MonoBehaviour
                     WalkSFX.Play();
                 }
             }
+            else if (isGliding)
+            {
+                rb2D.velocity = new Vector2(hMove.x * glideSpeed, rb2D.velocity.y * glideYVelocityFactor);
+            }
             else
             {
                 rb2D.velocity = new Vector2(hMove.x * airControlSpeed, rb2D.velocity.y); // Use air control speed in air
             }
+
             if (Input.GetButtonDown("Jump") && canJump)
             {
                 rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
@@ -97,6 +117,7 @@ public class PlayerMove : MonoBehaviour
             rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y);
         }
     }
+
     public void CreateBlock()
     {
         // Get the player's current position
@@ -107,14 +128,11 @@ public class PlayerMove : MonoBehaviour
         if (FaceRight)
         {
             blockPosition = playerPosition + Vector3.right * distanceFromPlayer;
-
         }
         else
         {
             blockPosition = playerPosition + Vector3.left * distanceFromPlayer;
-
         }
-        // Calculate the position for the new block (to the left)
 
         // Instantiate the block at the calculated position
         Instantiate(blockPrefab, blockPosition, Quaternion.identity);
