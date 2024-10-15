@@ -7,7 +7,7 @@ public class PlayerPlanting : MonoBehaviour{
     public Transform plantPoint;
     public CountFollowers1 CountFollowers1;
     float distanceToPlant;
-    public float plantingDistance = 5f;
+    public float plantingDistance = 2f;
     public LayerMask plantsLayer;
     bool isNearPlants = false;
     bool plantPossible = false;
@@ -19,7 +19,7 @@ public class PlayerPlanting : MonoBehaviour{
     }
     void Update(){
         if (Input.GetKeyDown("p")){
-            IsNearOtherPlants();
+            // IsNearOtherPlants();
             FollowerCheck();
             if (!isNearPlants && plantPossible){
                 PlantFollower();
@@ -43,7 +43,7 @@ public class PlayerPlanting : MonoBehaviour{
         }
     }
 
-    public void IsNearOtherPlants(){
+    /* public void IsNearOtherPlants(){
         Collider2D[] hitPlants = Physics2D.OverlapCircleAll(plantPoint.position, plantingDistance, plantsLayer);
         if (hitPlants.Length == 0){
             Debug.Log("no plants in the way here!: " + hitPlants);
@@ -51,7 +51,7 @@ public class PlayerPlanting : MonoBehaviour{
         }   else {
             Debug.Log("too close to other plants!: " + hitPlants);
             isNearPlants = true;
-        }
+        } */
 
         /*
         foreach(Collider2D player in hitPlants){
@@ -61,7 +61,7 @@ public class PlayerPlanting : MonoBehaviour{
         }
         isNearPlants = false;
         */
-      }
+      
 
       //NOTE: to help see the attack sphere in editor:
       void OnDrawGizmosSelected(){
